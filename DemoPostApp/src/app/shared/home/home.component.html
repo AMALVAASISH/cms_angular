@@ -1,0 +1,21 @@
+<p>home works!</p>
+<div class="container">
+    <div class="jumbotron">
+    <h1 class="display-4">WELCOME</h1>
+    <p>please select your option below</p>
+    <hr>
+</div>
+<a [routerLink] = "['/patients/add']" role="button" class="btn btn-outline-secondary">
+<span><i class="fa-solid fa-user-plus"></i>></span><br>
+Add patients
+</a>
+
+
+<a [routerLink] = "['/patients/list']" role="button" class="btn btn-outline-secondary">
+<span><i class="fa-solid fa-user-plus"></i>></span><br>
+List patients
+</a>
+
+
+</div>
+<router-outlet></router-outlet>

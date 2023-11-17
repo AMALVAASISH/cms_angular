@@ -1,1 +1,75 @@
 <p>patients-add works!</p>
+<div class="container">
+    <h1>Add patients</h1>
+    <hr>
+    <!-- template driven form -->
+    <form name="frmPosts" #form="ngForm" autocomplete="off" (ngSubmit) = "onSubmit(form)">
+        <div class="form-group">
+            <input type="hidden" readonly name="id"  [(ngModel)]="patientsService.formPatientsData.id">
+        </div>
+        <div class="form-group">
+            <label>First Name</label>
+            <input name="first_name" #first_name="ngModel" [(ngModel)]="patientsService.formPatientsData.first_name"
+            class="form-control" placeholder="Enter first name" minlength="3" maxlength="10" required>
+            <div class="validation-error" *ngIf="first_name.touched&& first_name.invalid">
+                <div>First Name is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input name="last_name" #last_name="ngModel" [(ngModel)]="patientsService.formPatientsData.last_name"
+            class="form-control" placeholder="Enter last name" minlength="3" maxlength="10" required>
+            <div class="validation-error" *ngIf="last_name.touched&& last_name.invalid">
+                <div>Last Name is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" name="dob" #dob="ngModel" [(ngModel)]="patientsService.formPatientsData.dob"
+            class="form-control" placeholder="Enter date of birth" minlength="3" maxlength="10" required>
+            <div class="validation-error" *ngIf="dob.touched&& dob.invalid">
+                <div>Date of birth is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Mobile Number</label>
+            <input name="mobile_no" #mobile_no="ngModel" [(ngModel)]="patientsService.formPatientsData.mobile_no"
+            class="form-control" placeholder="Enter Mobile Number" minlength="3" maxlength="10" required>
+            <div class="validation-error" *ngIf="mobile_no.touched&& mobile_no.invalid">
+                <div>Mobile number is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            <input name="address" #address="ngModel" [(ngModel)]="patientsService.formPatientsData.address"
+            class="form-control" placeholder="Enter address" minlength="3" maxlength="10" required>
+            <div class="validation-error" *ngIf="address.touched&& address.invalid">
+                <div>address is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Blood Group</label>
+            <select name="blood_group" #blood_group="ngModel" [(ngModel)]="patientsService.formPatientsData.blood_group"
+            class="form-control" id="bloodGroupSelect" required>
+            <option *ngFor="let bloodGroup of bloodGroups" [value]="bloodGroup.value">{{ bloodGroup.label }}</option>
+            </select>
+            <div class="validation-error" *ngIf="blood_group.touched && blood_group.invalid">
+                <div>Blood Group is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Gender</label>
+            <select name="gender" #gender="ngModel" [(ngModel)]="patientsService.formPatientsData.gender"
+            class="form-control" required>
+            <option *ngFor="let genderOption of genderOptions" [value]="genderOption.value">{{ genderOption.label }}</option>
+            </select>
+            <div class="validation-error" *ngIf="gender.touched&& gender.invalid">
+                <div>gender is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" [disabled]="!(form.valid && form.dirty)" class="btn btn-lg btn-primary form-control">submit</button>
+        </div>
+    </form>
+</div>
+

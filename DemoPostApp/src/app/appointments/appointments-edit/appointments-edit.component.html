@@ -1,0 +1,40 @@
+<p>appointments-edit works!</p>
+<p>appointments-add works!</p>
+<p>patients-add works!</p>
+
+<div class="container">
+    <h1>Add patients</h1>
+    <hr>
+    <!-- template driven form -->
+    <form name="frmAppPosts" #form="ngForm" autocomplete="off" (ngSubmit) = "onSubmit(form)">
+        <div class="form-group">
+            <input type="hidden" readonly name="id"  [(ngModel)]="appointmentsService.formAppointmentsData.id">
+        </div>
+        <div class="form-group">
+            <label>Patient id</label>
+            <input name="patient_id" #patient_id="ngModel" [(ngModel)]="appointmentsService.formAppointmentsData.patient_id"
+            class="form-control" readonly>
+        </div>
+        <!-- <div class="form-group">
+            <label>select doctor :</label>
+            <select name="doctor_id" id="doctor_id" class="form-control"  #doctor_id="ngModel" [(ngModel)]="appointmentsService.formAppointmentsData.doctor_id" required>
+                <option value=0 >choose doctor</option>
+                <option *ngFor="let cat of appointmentsService.doctors" value="{{cat.doctor_id}}">{{cat.doctor_name}}</option>
+            </select> -->
+        <div class="form-group">
+            <label>select doctor :</label>
+            <select name="doctor_id" id="doctor_id" class="form-control"  #doctor_id="ngModel" [(ngModel)]="appointmentsService.formAppointmentsData.doctor_id" required>
+                <option value=0 disabled>choose doctor</option>
+                <option *ngFor="let cat of appointmentsService.appointments" value="{{cat.doctor_id}}">{{cat.doctor_name}}</option>
+            </select>
+        <div class="form-group">
+                <label>select specialisation:</label>
+                <select name="specialization_id" id="specialization_id" class="form-control"  #specialization_id="ngModel" [(ngModel)]="appointmentsService.formAppointmentsData.specialization_id" required>
+                    <option value=0>choose specialisation</option>
+                    <option *ngFor="let cat of appointmentsService.appointments" value="{{cat.doctor_id}}">{{cat.specialisation}}</option>
+                </select>
+        <div class="form-group">
+            <button type="submit" [disabled]="!(form.valid && form.dirty)" class="btn btn-lg btn-primary form-control">submit</button>
+        </div>
+    
+</div>

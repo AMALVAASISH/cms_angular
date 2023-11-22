@@ -1,7 +1,7 @@
-<p>home works!</p>
+
 <div class="container">
     <div class="jumbotron">
-    <h1 class="display-4">WELCOME</h1>
+    <h1 class="display-4">WELCOME RECEPTIONIST</h1>
     <p>please select your option below</p>
     <hr>
 </div>
@@ -15,6 +15,22 @@ Add patients
 <span><i class="fa-solid fa-user-plus"></i>></span><br>
 List patients
 </a>
+
+<a [routerLink] = "['/appointments/list']" role="button" class="btn btn-outline-secondary">
+    <span><i class="fa-solid fa-user-plus"></i>></span><br>
+    List Appointments
+    </a>
+
+    <a [routerLink] = "['/doctors/list']" role="button" class="btn btn-outline-secondary">
+        <span><i class="fa-solid fa-user-plus"></i>></span><br>
+        List Doctors
+        </a>
+
+    
+    <a [routerLink] = "['/recepbills/list']" role="button" class="btn btn-outline-secondary">
+        <span><i class="fa-solid fa-user-plus"></i>></span><br>
+        Paid Bills
+        </a>
 
 
 </div>

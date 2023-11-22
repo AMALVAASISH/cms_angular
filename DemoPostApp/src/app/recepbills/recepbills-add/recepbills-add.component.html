@@ -1,0 +1,46 @@
+<p>recepbills-add works!</p>
+<p>patients-add works!</p>
+<div class="container">
+    <h1>Add patients</h1>
+    <hr>
+    <!-- template driven form -->
+    <form name="frmBillPosts" #form="ngForm" autocomplete="off" (ngSubmit) = "onSubmit(form)">
+        <div class="form-group">
+            <input type="hidden" readonly name="id"  [(ngModel)]="recepbillsService.formRecepbillsData.id">
+        </div>
+        <div class="form-group">
+            <label>Patient id</label>
+            <input name="patient_id" #patient_id="ngModel" [(ngModel)]="appointmentsService.formAppointmentsData.patient_id"
+            class="form-control" readonly>
+        </div>
+        <div class="form-group">
+            <label>Appointment id </label>
+            <input name="appointment_id" id="appointment_id" class="form-control"  #appointment_id="ngModel" [(ngModel)]="appointmentsService.formAppointmentsData.appointment_id" required>
+        <div class="form-group">
+            <label>token no</label>
+            <input name="token_no" #token_no="ngModel" [(ngModel)]="appointmentsService.formAppointmentsData.token_no"
+            class="form-control" readonly>
+        </div>
+        <div class="form-group">
+            <label>doctor id</label>
+            <input name="doctor_id" #doctor_id="ngModel" [(ngModel)]="appointmentsService.formAppointmentsData.doctor_id"
+            class="form-control" readonly>
+        </div>
+        <!-- <div class="form-group">
+            <label>Status</label>
+            <select name="status" id="status" class="form-control"  #status="ngModel" [(ngModel)]="recepbillsService.formRecepbillsData.status" required>
+                <option value=0 disabled>Status</option>
+                <option *ngFor="let cat of recepbillsService.recepbills" 
+                [value]="cat.status">{{ cat.status }}</option>
+            </select>
+        </div> -->
+        <!-- <div class="form-group">
+            <label>Bill Amount</label>
+            <input name="consultationfees" #consultationfees="ngModel" [(ngModel)]="doctorsService.doctors.consultationfees"
+            class="form-control" readonly>
+        </div> -->
+        <div class="form-group">
+            <button type="submit" class="btn btn-lg btn-primary form-control">submit</button>
+        </div>
+    
+</div>

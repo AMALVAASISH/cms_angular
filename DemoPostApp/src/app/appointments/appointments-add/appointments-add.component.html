@@ -1,0 +1,64 @@
+<p>appointments-add works!</p>    
+<p>patients-add works!</p>
+<div class="container">
+    <h1>Add patients</h1>
+    <hr>
+    <!-- template driven form -->
+    <form name="frmAppPosts" #form="ngForm" autocomplete="off" (ngSubmit) = "onSubmit(form)">
+        <div class="form-group">
+            <input type="hidden" readonly name="id"  [(ngModel)]="patientsService.formPatientsData.id">
+        </div>
+        <div class="form-group">
+            <label>Patient id</label>
+            <input name="patient_id" #patient_id="ngModel" [(ngModel)]="patientsService.formPatientsData.patient_id"
+            class="form-control" readonly>
+        </div>
+        <div class="form-group">
+            <label>select doctor :</label>
+            <select name="doctor_id" id="doctor_id" class="form-control"  #doctor_id="ngModel" [(ngModel)]="appointmentsService.formAppointmentsData.doctor_id" required>
+                <option value=0 disabled>choose doctor</option>
+                <option *ngFor="let cat of appointmentsService.doctors" value="{{cat.doctor_id}}">{{cat.doctor_name}}</option>
+            </select>
+        <div class="form-group">
+                <label>select specialisation:</label>
+                <select name="specialization_id" id="specialization_id" class="form-control"  #specialization_id="ngModel" [(ngModel)]="appointmentsService.formAppointmentsData.specialization_id" required>
+                    <option value=0 disabled>choose doctor</option>
+                    <option *ngFor="let cat of appointmentsService.doctors" value="{{cat.doctor_id}}">{{cat.specialisation}}</option>
+                </select>
+            <!-- <div class="validation-error" *ngIf="category.touched&& category.invalid">
+                <div style="color: red;">doctor is required</div>
+            </div> -->
+        <div class="form-group">
+            <button type="submit" [disabled]="!(form.valid && form.dirty)" class="btn btn-lg btn-primary form-control">submit</button>
+        </div>
+    
+</div>
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <th>id</th>
+            <th>name</th>
+            <th>specialisation</th>
+            <th>department</th>
+            <!-- <th>category name</th> -->
+            <th>consultation fees</th>
+            <th></th>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let p of doctorsService.doctors">
+                <td>{{ p.doctor_id }}</td>
+                <td>{{p.doctor_name}}</td>
+                <td>{{p.specialisation}}</td>
+                <td>{{p.department_name}}</td>
+                <td>{{p.consultationfees}}</td>
+                <!-- <td>{{p.post_shortname}}</td>
+                <td>{{p.post_published_datetime}}</td> -->
+            <!-- <td>
+                <button class="btn btn-sm btn-outline-danger">x</button>
+                <button class="btn btn-info" style="margin-left:10px">Edit</button>
+            </td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,29 @@
+<button (click)="goBack()">Back</button>
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <th>id</th>
+            <th>name</th>
+            <th>specialisation</th>
+            <th>department</th>
+            <!-- <th>category name</th> -->
+            <th>consultation fees</th>
+            <th></th>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let p of doctorsService.doctors">
+                <td>{{ p.doctor_id }}</td>
+                <td>{{p.doctor_name}}</td>
+                <td>{{p.specialisation}}</td>
+                <td>{{p.department_name}}</td>
+                <td>{{p.consultationfees}}</td>
+                <!-- <td>{{p.post_shortname}}</td>
+                <td>{{p.post_published_datetime}}</td> -->
+            <!-- <td>
+                <button class="btn btn-sm btn-outline-danger">x</button>
+                <button class="btn btn-info" style="margin-left:10px">Edit</button>
+            </td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>

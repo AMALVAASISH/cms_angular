@@ -1,4 +1,5 @@
 <p>patients-add works!</p>
+<button (click)="goBack()">Back</button>
 <div class="container">
     <h1>Add patients</h1>
     <hr>
@@ -34,7 +35,7 @@
         <div class="form-group">
             <label>Mobile Number</label>
             <input name="mobile_no" #mobile_no="ngModel" [(ngModel)]="patientsService.formPatientsData.mobile_no"
-            class="form-control" placeholder="Enter Mobile Number" minlength="3" maxlength="10" required>
+            class="form-control" placeholder="Enter Mobile Number" minlength="10" maxlength="10" required>
             <div class="validation-error" *ngIf="mobile_no.touched&& mobile_no.invalid">
                 <div>Mobile number is required</div>
             </div>
@@ -42,7 +43,7 @@
         <div class="form-group">
             <label>Address</label>
             <input name="address" #address="ngModel" [(ngModel)]="patientsService.formPatientsData.address"
-            class="form-control" placeholder="Enter address" minlength="3" maxlength="10" required>
+            class="form-control" placeholder="Enter address" minlength="3" maxlength="20" required>
             <div class="validation-error" *ngIf="address.touched&& address.invalid">
                 <div>address is required</div>
             </div>

@@ -33,15 +33,16 @@ export class PatientsAddComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  goBack():void{
+    this.router.navigate(['/shared/home'])
+
+}
   addMethod(){
     // call the service method
    
   }
   onSubmit(form : NgForm){
     console.log(form.value)
-
-    
-
     this.addPatients(form)
   }
   addPatients(form: NgForm){
@@ -49,10 +50,16 @@ export class PatientsAddComponent implements OnInit {
     this.patientsService.insertPatients(form.value).subscribe(
       (result=>{
         console.log(result);
+        this.resetForm(form);
         this.router.navigate(['/patients/list'])
       })
     )
     }
+    resetForm(form:NgForm){
+      if(form!=null){
+        form.resetForm();
+      }}
+  
 
 
 

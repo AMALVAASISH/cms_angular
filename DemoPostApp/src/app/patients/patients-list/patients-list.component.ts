@@ -15,6 +15,10 @@ export class PatientsListComponent implements OnInit {
   ngOnInit(): void {
     this.patientsService.bindListPosts()
   }
+  goBack():void{
+    this.router.navigate(['/shared/home'])
+
+}
   updatePatients(p: Patients){
     console.log(p);
     this.populatePatientsData(p);  
@@ -26,5 +30,12 @@ export class PatientsListComponent implements OnInit {
     this.patientsService.formPatientsData=Object.assign({},p)
   }
 
-
+  bookAppointments(p: Patients){
+    console.log(p);
+    this.populateAppointmentssData(p);
+    this.router.navigate(['appointments/add'])
+  }
+  populateAppointmentssData(p: Patients) {
+    this.patientsService.formPatientsData=Object.assign({},p)
+  }
 }

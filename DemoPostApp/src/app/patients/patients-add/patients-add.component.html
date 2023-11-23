@@ -24,14 +24,39 @@
                 <div>Last Name is required</div>
             </div>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label>Date of Birth</label>
             <input type="date" name="dob" #dob="ngModel" [(ngModel)]="patientsService.formPatientsData.dob"
             class="form-control" placeholder="Enter date of birth" minlength="3" maxlength="10" required>
             <div class="validation-error" *ngIf="dob.touched&& dob.invalid">
                 <div>Date of birth is required</div>
             </div>
-        </div>
+        </div> -->
+        <!-- <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" name="dob" [(ngModel)]="patientsService.formPatientsData.dob"
+                   class="form-control" placeholder="Enter date of birth" minlength="3" maxlength="10"
+                   required appDateNotInFuture>
+            <div class="validation-error" *ngIf="dob?.errors?.required">
+              <div>Date of birth is required</div>
+            </div>
+            <div class="validation-error" *ngIf="dob.errors?.futureDate">
+              <div>Date cannot be in the future</div>
+            </div>
+        </div> -->
+        <!-- <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" name="dob" #dob="ngModel" [(ngModel)]="dobValue"
+              class="form-control" placeholder="Enter date of birth" required
+              (input)="validateDate(($event.target as HTMLInputElement).value)">
+            <div class="validation-error" *ngIf="dob?.errors?.['required'] && dob.touched">
+              <div>Date of birth is required</div>
+            </div>
+            <div class="validation-error" *ngIf="invalidDate">
+              <div>Date cannot be after 2023-11-23</div>
+            </div>
+          </div> -->
+          
         <div class="form-group">
             <label>Mobile Number</label>
             <input name="mobile_no" #mobile_no="ngModel" [(ngModel)]="patientsService.formPatientsData.mobile_no"

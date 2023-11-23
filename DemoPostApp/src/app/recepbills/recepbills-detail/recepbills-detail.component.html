@@ -1,14 +1,51 @@
-<p>recepbills-detail works!</p>
-<!-- <div id="print-section" class="appointment-details-container" *ngIf="recepbills">
+
+
+<!-- <div id="print-section" class="appointment-details-container" *ngIf="Recepbills">
     <h2>Appointment Details</h2>
     <hr>
-    <p>Bill No: {{ recepbills.bill_no }}</p>
-    <p>Patient Name: {{ recepbills.patient_name }}</p>
-    <p>Doctor Name: {{ appointment.doctor_name }}</p>
-    <p>Date of Visit: {{ appointment.date_of_visit | date:'short' }}</p>
-    <p>Token: {{ appointment.token }}</p>
-    <p>Consultation Fee: {{ appointment.consultation_fee }} &#8377;</p>
+    <p>Bill No: {{ Recepbills.bill_no }}</p>
+    <p>Patient Name: {{ Recepbills.patient_name }}</p>
+    <p>Doctor Name: {{ Recepbills.doctor_name }}</p>
+    <p>Date of Visit: {{ Recepbills.date_of_visit | date:'short' }}</p>
+    <p>Token: {{ Recepbills.token }}</p>
+    <p>Consultation Fee: {{ Recepbills.consultation_fee }} &#8377;</p>
 
     
-</div> -->
-
+</div>
+ -->
+ <!-- <div class="container text-center">
+    <div *ngIf="recepbills" class="mt-4">
+      <p>Bill No: {{ recepbills.bill_no }}</p>
+      <p>Appointment Id: {{ recepbills.appointment_id }}</p>
+      <p>Patient Id: {{ recepbills.patient_id }}</p>
+      <p>Doctor Id: {{ recepbills.doctor_name }}</p>
+      <p>Token No: {{ recepbills.token_no }}</p>
+      <p>Bill Amount: {{ recepbills.bill_amount }}</p>
+      <p>Status: {{ recepbills.status }}</p>
+  
+      <!-- Add more details as needed -->
+  
+      <!-- <button class="btn btn-primary mt-3" (click)="printReceipt()">Print</button>
+    </div>
+  </div> --> 
+<!-- <button (click)="goBack()">Back</button> -->
+  <div class="container text-center mt-4">
+    <h1>CLINIC OF MODERN SOCEITY</h1>
+    <p>Bill Details</p>
+    <hr>
+    <div *ngIf="recepbills" class="mt-4">
+      <!-- Display bill details -->
+      <p>Bill No: {{ recepbills.bill_no }}</p>
+      <p>Appointment Id: {{ recepbills.appointment_id }}</p>
+      <p>Patient Id: {{ recepbills.patient_id }}</p>
+      <p>Doctor: {{ recepbills.doctor_name }}</p>
+      <p>Token No: {{ recepbills.token_no }}</p>
+      <p>Bill Amount: {{ recepbills.bill_amount }}</p>
+      <p>Bill Date: {{ recepbills.bill_date | date: 'dd-MM-yyyy' }}</p>
+      <p>Status: {{ recepbills.status }}</p>
+  
+      <!-- Print button -->
+      <button class="btn btn-primary mt-3" id="printButton" (click)="printReceipt()">Print</button>
+    </div>
+</div>
+  

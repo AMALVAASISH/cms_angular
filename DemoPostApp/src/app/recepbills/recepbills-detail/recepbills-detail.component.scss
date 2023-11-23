@@ -1,0 +1,8 @@
+@media print {
+    #printButton {
+      display: none; /* Hide the print button when printing */
+    }
+    #goBack{
+        display: none;
+    }
+  }

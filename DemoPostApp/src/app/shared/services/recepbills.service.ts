@@ -24,6 +24,15 @@ export class RecepbillsService {
   bindDetailRecepbills(appointmentId: number): void {
     this.httpClient.get<Recepbills[]>(environment.apiUrl + "/api/receptionbills/" + appointmentId) .subscribe(response=>this.recepbills = response);
   }
+
+
+
+  getRecepbillById(appointmentId: number): Observable<Recepbills> {
+    return this.httpClient.get<Recepbills>(`${environment.apiUrl}/api/receptionbills/${appointmentId}`);
+  }
+
+
+
   insertRecepbills(recepbills: Recepbills): Observable<any>{
       return this.httpClient.post(environment.apiUrl + "/api/receptionbills/", recepbills)
     }

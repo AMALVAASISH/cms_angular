@@ -18,7 +18,7 @@
             <th>Address</th>
             <th>Blood Group</th>
             <th>Gender</th>
-            <th>Status</th>
+            <!-- <th>Status</th> -->
         </thead>
         <tbody>
             <tr *ngFor = "let p of patientsService.patients ">
@@ -30,7 +30,7 @@
                 <td>{{p.address}}</td>
                 <td>{{p.blood_group}}</td>
                 <td>{{ p.gender}}</td>
-                <td>{{p.is_active}}</td>
+                <!-- <td>{{p.is_active}}</td> -->
                 <td>
                     <button class="btn btn-sm btn-outline-danger" (click)="updatePatients(p)">Edit</button>
                     <button class="btn btn-info" style="margin-left: 10px" (click)="bookAppointments(p)">Book Now</button>

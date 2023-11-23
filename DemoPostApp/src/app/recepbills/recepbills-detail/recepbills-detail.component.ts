@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { Recepbills } from 'src/app/shared/models/recepbills';
 import { RecepbillsService } from 'src/app/shared/services/recepbills.service';
 
 @Component({
@@ -8,10 +9,25 @@ import { RecepbillsService } from 'src/app/shared/services/recepbills.service';
   styleUrls: ['./recepbills-detail.component.scss']
 })
 export class RecepbillsDetailComponent implements OnInit {
+  recepbills: Recepbills | undefined;
 
-  constructor(public recepbillsService: RecepbillsService,public route: RouterModule) { }
+  constructor(public recepbillsService: RecepbillsService,private route: ActivatedRoute,public router: Router) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      const appointmentId = +params['id']; // Convert the parameter to a number
+
+      this.recepbillsService.getRecepbillById(appointmentId).subscribe(
+        (response) => {
+          this.recepbills = response;
+        },
+        (error) => {
+          // Handle error, e.g., display an error message
+          console.error('Error fetching recepbill details:', error);
+        }
+      );
+    });
+  }
   //   this.route.params.subscribe(params => {
   //     const appointmentId = +params['id']; // Convert the parameter to a number
 
@@ -23,7 +39,7 @@ export class RecepbillsDetailComponent implements OnInit {
   //     );
   //   });
 
-  }
+  
   // recepBill(p: Appointments){
   //   console.log(p);
   //   this.populateAppointmentsData(p);  
@@ -34,5 +50,10 @@ export class RecepbillsDetailComponent implements OnInit {
   // populateAppointmentsData(p: Appointments) {
   //   this.appointmentsService.formAppointmentsData=Object.assign({},p)
   // }
+  printReceipt() {
+    window.print(); // Trigger the print dialog
+  }
+  goBack():void{
+    this.router.navigate(['/shared/home'])}
   
 }
